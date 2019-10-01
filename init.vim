@@ -9,6 +9,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'Shougo/defx.nvim'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 colorscheme gruvbox8
