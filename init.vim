@@ -16,17 +16,22 @@ else
     endif
 endif
 
+"Plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rhysd/clever-f.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+
+Plug 'sheerun/vim-polyglot'
 
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
@@ -36,6 +41,12 @@ Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
 Plug 'stanangeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'phpactor/ncm2-phpactor'
+
+Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'ncm2/ncm2-go'
+
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -48,8 +59,10 @@ map <leader>f :Files <CR>
 map <leader>; :Buffers<CR>
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 set completeopt=noinsert,menuone,noselect 
 set shortmess+=c
+let g:php_cs_fixer_rules = "@PSR2,no_unused_imports" " options: --fixers
 
 " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
 inoremap <c-c> <ESC>
