@@ -1,6 +1,21 @@
 let g:python_host_prog = $NVIM_PYTHON2
 let g:python3_host_prog = $NVIM_PYTHON3
 
+" Vim Plug download
+if has('nvim')
+    if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+      silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+else
+    if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'lifepillar/vim-gruvbox8'
@@ -47,3 +62,14 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" PHPActor
+nmap <Leader>u :call phpactor#UseAdd()<CR>
+nmap <Leader>mm :call phpactor#ContextMenu()<CR>
+nmap <Leader>nn :call phpactor#Navigate()<CR>
+nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+nmap <Leader>ct :call phpactor#Transform()<CR>
+nmap <Leader>cc :call phpactor#ClassNew()<CR>
+nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
