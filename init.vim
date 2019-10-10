@@ -24,6 +24,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rhysd/clever-f.vim'
 Plug 'mhinz/vim-startify'
+Plug 'takac/vim-hardtime'
+Plug 'scrooloose/nerdtree'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -48,16 +50,23 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ncm2/ncm2-go'
 
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'wsdjeg/FlyGrep.vim'
 
 call plug#end()
 
-set number
+set nu rnu
 colorscheme gruvbox8
 
-let g:airline_theme='onedark'
+let g:airlike_theme='onedark'
+let g:hardtime_default_on = 1
 
+map <leader>s :FlyGrep <CR>
 map <leader>f :Files <CR>
 map <leader>; :Buffers<CR>
+
+let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
+nnoremap <leader>t :NERDTreeToggle <CR>
+let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
