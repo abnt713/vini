@@ -22,17 +22,17 @@ call plug#begin()
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rhysd/clever-f.vim'
-Plug 'mhinz/vim-startify'
-Plug 'takac/vim-hardtime'
-Plug 'scrooloose/nerdtree'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'wsdjeg/FlyGrep.vim'
 
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'sheerun/vim-polyglot'
 
@@ -49,8 +49,6 @@ Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ncm2/ncm2-go'
 
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'wsdjeg/FlyGrep.vim'
 
 call plug#end()
 
@@ -58,15 +56,14 @@ set nu rnu
 colorscheme gruvbox8
 
 let g:airlike_theme='onedark'
-let g:hardtime_default_on = 1
 
 map <leader>s :FlyGrep <CR>
 map <leader>f :Files <CR>
 map <leader>; :Buffers<CR>
 
-let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
-nnoremap <leader>t :NERDTreeToggle <CR>
-let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
+let g:ale_sign_column_always = 1
+let g:ale_sign_warning = ''
+let g:ale_sign_error = ''
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
