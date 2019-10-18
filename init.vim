@@ -44,6 +44,7 @@ Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
 Plug 'stanangeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'phpactor/ncm2-phpactor'
+Plug 'mattn/emmet-vim'
 
 Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -70,6 +71,7 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 set completeopt=noinsert,menuone,noselect 
 set shortmess+=c
 let g:php_cs_fixer_rules = "@PSR2,no_unused_imports" " options: --fixers
+let g:user_emmet_leader_key = ','
 
 " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
 inoremap <c-c> <ESC>
