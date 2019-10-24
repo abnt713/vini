@@ -23,10 +23,12 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'wsdjeg/FlyGrep.vim'
+Plug 'scrooloose/nerdtree'
 
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
@@ -72,6 +74,10 @@ set completeopt=noinsert,menuone,noselect
 set shortmess+=c
 let g:php_cs_fixer_rules = "@PSR2,no_unused_imports" " options: --fixers
 let g:user_emmet_leader_key = ','
+
+let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
+nnoremap <leader>t :NERDTreeToggle <CR>
+let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 
 " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
 inoremap <c-c> <ESC>
