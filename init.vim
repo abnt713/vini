@@ -35,11 +35,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'sheerun/vim-polyglot'
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'ncm2/ncm2-go'
 
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-path'
 
 " PHP
 Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
@@ -48,18 +50,12 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'phpactor/ncm2-phpactor'
 Plug 'mattn/emmet-vim'
 
-" Go
-Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ncm2/ncm2-go'
-
 " Python
 Plug 'tell-k/vim-autopep8'
 Plug 'fisadev/vim-isort'
 Plug 'ncm2/ncm2-jedi'
 
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -72,6 +68,7 @@ let g:airlike_theme='onedark'
 let g:ale_sign_column_always = 1
 let g:ale_sign_warning = ''
 let g:ale_sign_error = ''
+let g:airline#extensions#ale#enabled = 1
 
 " NERDTree ignored files and settings
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
