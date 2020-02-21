@@ -56,6 +56,8 @@ Plug 'fisadev/vim-isort'
 Plug 'ncm2/ncm2-jedi'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'vobornik/vim-mql4'
+Plug 'rupurt/vim-mql5'
 
 call plug#end()
 
