@@ -1,6 +1,7 @@
 /autoload
 /ftplugin
 /plugged
+.netrwhist
 
 /envs/*
 !.gitkeep
